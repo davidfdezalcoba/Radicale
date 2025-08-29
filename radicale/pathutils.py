@@ -329,4 +329,8 @@ def path_permissions_as_string(path):
         s = "path=%r owner=%s group=%s mode=%o" % (path, pp[0], pp[1], pp[2])
     except NotImplementedError:
         s = "path=%r owner=UNKNOWN(unsupported on this system)" % (path)
+    except KeyError:
+        s = "KeyError exception thrown" % (path)
+    except Exception:
+        s = "Generic exception!"
     return s
